@@ -17,12 +17,14 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 1
+  prepared_statements: false
+  advisory_locks: false
 
 
 development:
   <<: *default
-  url: "postgres://postgres:postgres@127.0.0.1:5432/pgcat_sample_development"
+  url: "postgres://postgres:postgres@127.0.0.1:6432/pgcat_sample"
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
